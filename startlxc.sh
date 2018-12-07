@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PARSED_OPTIONS=$(getopt -o abcd --long start,begin,stop,help -- "$@")
+PARSED_OPTIONS=$(getopt -o abcd --long start,stop,help -- "$@")
 
 eval set -- "$PARSED_OPTIONS"
 
@@ -10,10 +10,7 @@ while true; do
                         sudo systemctl stop lighttpd
                         lxc-start -n u1
                         lxc-start -n u2
-                        sleep 10
-                        shift
-                        break;;
-                -b|--begin)
+                        sleep 15
                         sudo iptables -t nat -A PREROUTING -i wlan0 -p tcp --dport 80 -j DNAT --to-destination 10.0.3.11
                         shift
                         break;;
