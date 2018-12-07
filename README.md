@@ -10,9 +10,14 @@ LEO1 Portfolio Two
 To run the system on the pi you go through the following steps:
 
 startlxc.sh --start
+
 lxc-attach -n u2
+
   socatScript.sh &
+
   exit
+
 startlxc.sh --begin
+
 
 After this the website is running, and by refresing the site you get new numbers
